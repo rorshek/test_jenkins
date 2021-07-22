@@ -17,6 +17,18 @@ pipeline {
 				sh 'ssh root@45.156.24.104 \'hostname\''
 			}
 		}
+
+		stage('st2') {
+			steps {
+				sh 'ssh root@45.156.24.104 \'date\''
+			}
+		}
+
+		stage('st3') {
+			steps {
+				sh 'ssh root@45.156.24.104 \'hostname -I\''
+			}
+		}
 	}
 
 }

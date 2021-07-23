@@ -19,7 +19,7 @@ pipeline {
 			steps {
 				echo "Creating image"
 				dir ('docker/toolbox') {
-					sh 'docker build . '
+					sh 'docker build --toolbox:latest . '
 				}
 
 			}

@@ -3,7 +3,7 @@
 properties([disableConcurrentBuilds()])
 
 
-pipeline {
+pipline {
 	agent {
 		label 'master'
 	}
@@ -12,14 +12,14 @@ pipeline {
 	}
 
 	stages {
-		stage('docker image') {
+		stage("docker image") {
 			steps {
 				echo "Creating image"
 				dir ('docker/toolbox') {
 					sh 'docker build . '
 				}
+
 			}
-
+		}
 	}
-
 }

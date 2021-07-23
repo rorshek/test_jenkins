@@ -15,14 +15,32 @@ pipeline {
 	}
 
 	stages {
+
+		stage("docker login") {
+			steps {
+				echo "docker login"
+				withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: "NAME", passwordVariable: "PASS")]) {
+					sh """
+					docker login -u $USER -p $PASS
+					"""
+				}
+			}
+		}
+
 		stage("docker image") {
 			steps {
 				echo "Creating image"
 				dir ('docker/toolbox') {
-					sh 'docker build -t toolbox:latest . '
+					sh 'docker build -t rorshek/toolbox:latest . '
 				}
 
 			}
+		}
+
+		stage("push") {
+			sh """
+			docker push rorshek/toolbox:latest
+			"""
 		}
 	}
 }

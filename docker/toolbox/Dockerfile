@@ -1,2 +1,2 @@
-FROM ubuntu:16.04
-RUN apt update && apt install -y python3-pip curl htop
+FROM ubuntu:20.04
+RUN apt update && apt install -y curl htop wget aria2 

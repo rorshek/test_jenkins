@@ -38,9 +38,12 @@ pipeline {
 		}
 
 		stage("push") {
-			sh """
-			docker push rorshek/toolbox:latest
-			"""
+			steps {
+				sh """
+				docker push rorshek/toolbox:latest
+				"""
+			}
+
 		}
 	}
 }

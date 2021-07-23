@@ -1,5 +1,2 @@
-FROM alpine
-RUN apk add --no-cache curl wget busybox-extras netcat-openbsd python py-pip
-RUN pip install awscli
-RUN apk --purge -v del py-pip
-CMD tail -f /dev/null 
+FROM ubuntu:16.04
+RUN apt update && apt install python3-pip 
